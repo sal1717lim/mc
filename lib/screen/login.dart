@@ -44,7 +44,7 @@ class _loginState extends State<login>{
           Container(
             height: MediaQuery.of(context).size.height*0.05,
             width: MediaQuery.of(context).size.width*0.8,
-            decoration: deco(),
+            decoration: deco(this.check),
             child:Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -76,7 +76,7 @@ class _loginState extends State<login>{
           Container(
               height: MediaQuery.of(context).size.height*0.05,
               width: MediaQuery.of(context).size.width*0.8,
-              decoration: deco(),
+              decoration: deco(this.check),
             child:Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -148,11 +148,11 @@ class _loginState extends State<login>{
       ),
     ));
   }
-  deco(){
+  deco(bool correct){
     return BoxDecoration(
         color:Colors.white.withOpacity(0.8),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(width:2,color:check?Colors.redAccent:Colors.green)
+        border: Border.all(width:2,color:correct?Colors.redAccent:Colors.green)
     );
   }
 }
