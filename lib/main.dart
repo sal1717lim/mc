@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './screen/login.dart';
 import './screen/load.dart';
+import './screen/principale.dart';
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: login(),
+      home: Home(),
     );
   }
 }
