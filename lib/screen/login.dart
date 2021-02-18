@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
+import '../outils/firebase.dart';
 class login extends StatefulWidget{
 
   _loginState createState() =>_loginState();
@@ -178,9 +179,10 @@ class _loginState extends State<login>{
                       color:Color(0xFF28224e)
                   ),)
                   ,
-                  onPressed:(this.bemail & this.bmdp)? (){
-
-                  }:null,
+                  onPressed:() {
+                    var x=Auth().connexionA();
+                    print(x);
+                  }
                 ),
               
               decoration: BoxDecoration(
