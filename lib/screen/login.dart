@@ -7,6 +7,8 @@ class login extends StatefulWidget{
 }
 class _loginState extends State<login>{
   bool check=false;
+  String mail;
+  String pass;
  TextEditingController email;
  TextEditingController mdp;
  bool bemail=false;
@@ -21,12 +23,14 @@ class _loginState extends State<login>{
         if(vemail.hasMatch(email.text)){
             setState(() {
               bemail=true;
+              mail=email.text;
             });
 
 
         }else{
           setState(() {
             this.bemail=false;
+
           });
 
         }
@@ -35,6 +39,7 @@ class _loginState extends State<login>{
       if(mdp.text.length>=8){
         setState(() {
           bmdp=true;
+          pass=mdp.text;
         });
 
       }else{
@@ -179,14 +184,16 @@ class _loginState extends State<login>{
                       color:Color(0xFF28224e)
                   ),)
                   ,
-                  onPressed:() {
-                    var x=Auth().connexionA();
-                    print(x);
-                  }
+                  onPressed:bmdp&bemail?() async {
+                    print(mail);
+                    print(pass);
+                    var x=await Auth().inscriptionemailmdp(mail, pass);
+                    print(x.user.uid);
+                  }:null
                 ),
               
               decoration: BoxDecoration(
-                  color:Colors.white.withOpacity(0.8),
+                  color:bmdp&bemail?Colors.white.withOpacity(0.8):Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20)
               ),
             ),
