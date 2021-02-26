@@ -187,8 +187,10 @@ class _loginState extends State<login>{
                   onPressed:bmdp&bemail?() async {
                     print(mail);
                     print(pass);
-                    var x=await Auth().inscriptionemailmdp(mail, pass);
-                    print(x.user.uid);
+                    var x=await Auth().connexionEmailmdp(mail, pass);
+                    if(x!=null){
+
+                    }
                   }:null
                 ),
               
