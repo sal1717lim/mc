@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
 import '../outils/firebase.dart';
+import '../screen/interface.dart';
 class login extends StatefulWidget{
 
   _loginState createState() =>_loginState();
@@ -189,7 +190,8 @@ class _loginState extends State<login>{
                     print(pass);
                     var x=await Auth().connexionEmailmdp(mail, pass);
                     if(x!=null){
-
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>inter()), (route) => false);
+                      //Navigator.push(context,MaterialPageRoute(builder: (context)=>inter()));
                     }
                   }:null
                 ),

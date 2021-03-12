@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 class Auth {
   final FirebaseAuth A =FirebaseAuth.instance;
 //conexion anonyme
@@ -24,7 +26,10 @@ class Auth {
       return null;
     }
   }
-
+// stream de connexion
+  Stream get User{
+    return A.onAuthStateChanged;
+  }
   //inscription
   inscriptionemailmdp(String email,String password)async{
       try{
@@ -33,6 +38,15 @@ class Auth {
         print(e);
         return null;
       }
+  }
+  deco() async{
+    try{
+      return await A.signOut();
+    }catch(e){
+      print(e);
+      return null;
+    }
+
   }
 }
 class bdd{
